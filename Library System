@@ -1,82 +1,85 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
-#include<conio.h>
-#include<stdlib.h> 
-struct library 
+
+struct library
 {
-   char bk_name[30];
-   char author[30];
-   int pages;
-   float price;
-}; 
-int main() 
+    char bk_name[100];
+    char author[50];
+    int pages;
+    float price;
+};
+
+int main()
 {
-   struct library l[100];
-   char ar_nm[30],bk_nm[30];
-   int i,j, keepcount; i=j=keepcount = 0;
-   while(j!=6)
-   {
-      printf("\n\n1. Add book information\n");
-      printf("2. Display book information\n");
-      printf("3. List all books of given author\n");
-      printf("4. List the title of specified book\n");
-      printf("5. List the count of books in the library\n");
-      printf("6. Exit"); 
-      printf ("\n\nEnter one of the above : ");
-      scanf("%d",&j);
-      switch (j) 
-      {
-         /* Add book */ 
-         case 1: 
-         printf ("Enter book name = ");
-         scanf ("%s",l[i].bk_name);
-         printf ("Enter author name = ");
-         scanf ("%s",l[i].author);
-         printf ("Enter pages = ");
-         scanf ("%d",&l[i].pages);
-         printf ("Enter price = ");
-         scanf ("%f",&l[i].price);
-         keepcount++;
-         break; 
-         
-         case 2: 
-         printf("you have entered the following information\n");
-         for(i=0; i<keepcount; i++)
-         {
-            printf ("book name = %s",l[i].bk_name);
-            printf ("\t author name = %s",l[i].author);
-            printf ("\t pages = %d",l[i].pages);
-            printf ("\t price = %f",l[i].price); 
-         } 
-         break;
-         
-         case 3: 
-         printf ("Enter author name : "); 
-         scanf ("%s",ar_nm); 
-         for (i=0; i<keepcount; i++) 
-         {
-            if (strcmp(ar_nm, l[i].author) == 0) 
-            printf ("%s %s %d %f",l[i].bk_name,l[i].author,l[i].pages,l[i].price);
-         } 
-         break;
-         
-         case 4: 
-         printf ("Enter book name : "); 
-         scanf ("%s",bk_nm); 
-         for (i=0; i<keepcount; i++)
-         {
-            if (strcmp(bk_nm, l[i].bk_name) == 0)
-            printf ("%s \t %s \t %d \t %f",l[i].bk_name,l[i].author,l[i].pages,l[i].price);
-         }
-         break;
-         
-         case 5:
-         printf("\n No of books in library : %d", keepcount);
-         break;
-         
-         case 6: 
-         exit (0); 
-      }
-   }
-return 0;
+    struct library l[100];
+    char auth_name[50],book_name[100];
+    int x,y, keepcnt;
+    x=y=keepcnt = 0;
+    while(y!=6)
+    {
+        printf("\n\n1. Add book information\n");
+        printf("2. Display book information\n");
+        printf("3. List all books of given author\n");
+        printf("4. List the title of specified book\n");
+        printf("5. List the count of books in the library\n");
+        printf("6. Exit");
+        
+        printf ("\n\nEnter one of the above : ");
+        scanf("%d",&y);
+        
+        switch (y)
+        {
+            case 1:  
+            printf ("Enter book name = ");
+            scanf ("%s",l[x].bk_name);
+            printf ("Enter author name = ");
+            scanf ("%s",l[x].author);
+            printf ("Enter pages = ");
+            scanf ("%d",&l[x].pages);
+            printf ("Enter price = ");
+            scanf ("%f",&l[x].price);
+            keepcnt++;
+            break;
+            
+            case 2:
+            printf("you have entered the following information\n");
+            for(x=0; x<keepcnt; x++)
+            {
+                printf ("book name = %s",l[x].bk_name);
+                printf ("\t author name = %s",l[x].author);
+                printf ("\t  pages = %d",l[x].pages);
+                printf ("\t  price = %f",l[x].price);
+            }
+            break;
+            
+            case 3:
+            printf ("Enter author name : ");
+            scanf ("%s",auth_name);
+            for (x=0; x<keepcnt; x++)
+            {
+                if (strcmp(auth_name, l[x].author) == 0)
+                printf ("%s %s %d %f",l[x].bk_name,l[x].author,l[x].pages,l[x].price);
+            }
+            break;
+            
+            case 4:
+            printf ("Enter book name : ");
+            scanf ("%s",book_name);
+            for (x=0; x<keepcnt; x++)
+            {
+                if (strcmp(book_name, l[x].bk_name) == 0)
+                printf ("%s \t %s \t %d \t %f",l[x].bk_name,l[x].author,l[x].pages,l[x].price);
+            }
+            break;
+            
+            case 5:
+            printf("\n Number of books in library : %d", keepcnt);
+            break;
+            
+            case 6:
+            exit (0); 
+        }
+    }
+    return 0;
 }
