@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include<string.h>
 #include<stdlib.h>
+#include<string.h>
 
 struct library
 {
@@ -59,7 +59,7 @@ int main()
             for (x=0; x<keepcnt; x++)
             {
                 if (strcmp(auth_name, l[x].author) == 0)
-                printf ("%s %s %d %f",l[x].bk_name,l[x].author,l[x].pages,l[x].price);
+                printf ("%s %d %f",l[x].bk_name,l[x].pages,l[x].price);
             }
             break;
             
@@ -69,7 +69,7 @@ int main()
             for (x=0; x<keepcnt; x++)
             {
                 if (strcmp(book_name, l[x].bk_name) == 0)
-                printf ("%s \t %s \t %d \t %f",l[x].bk_name,l[x].author,l[x].pages,l[x].price);
+                printf ("%s \t %d \t %f",l[x].author,l[x].pages,l[x].price);
             }
             break;
             
